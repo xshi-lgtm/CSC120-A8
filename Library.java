@@ -27,21 +27,25 @@ public class Library extends Building implements LibraryRequirements {
 
   /**
    * Overloaded constructor : Construct a Library with elevator by default.
-   * @param name
-   * @param address
-   * @param nFloors
+   * @param name name of library
+   * @param address address of library
+   * @param nFloors number of floors in the library
    */
   public Library(String name, String address, int nFloors) {
     this(name, address, nFloors, true);
   }
 
-  /** Add a title to the collection, marked available. */
+  /** 
+   * Add a title to the collection, marked available. 
+   * @param title the title of book added to the collection
+   */
   public void addTitle(String title){
       collection.put(title, true);
   }
 
   /** 
-   * Overloaded constructor : Add a default title "Untitled" to the collection.
+   * Overloaded method 
+   * Add a default title "Untitled" to the collection if the book has no name
    */
   public void addTitle(){
     collection.put("Untitled",true);
@@ -51,6 +55,7 @@ public class Library extends Building implements LibraryRequirements {
    * Remove a title from the collection.
    * @param title the title to remove
    * @return the removed title
+   * @throws IllegalArgumentException if the book is not in the collection
    */
   public String removeTitle(String title){
     if(collection.containsKey(title)){
@@ -60,9 +65,11 @@ public class Library extends Building implements LibraryRequirements {
       throw new IllegalArgumentException(title + "not found in the collection.");
     }
   }
+
   /**
    * Check out a title from the collection.
    * @param title the title to check out
+   * @throws IllegalArgumentException if the book has either been checked out or is not in the collection
    */
   public void checkOut(String title){
     if(collection.containsKey(title)){
@@ -79,6 +86,7 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Return a title to the collection.
    * @param title the title to return
+   * @throws IllegalArgumentException if the book is already in the collection or the book does not exist in the library
    */
   public void returnBook(String title){
     if(collection.containsKey(title)){
@@ -149,7 +157,7 @@ public class Library extends Building implements LibraryRequirements {
       System.out.println("You take the elevator to floor #" + floorNum + ".");
       this.activeFloor = floorNum;
     } else {
-        if (Math.abs(floorNum - this.activeFloor) > 1) {
+        if (Math.abs(floorNum - this.activeFloor) > 1) { // if moving to non-adjacent floors
           throw new RuntimeException("No elevator: you can only move one floor at a time.");
         } else {
             System.out.println("You walk to floor #" + floorNum + ".");

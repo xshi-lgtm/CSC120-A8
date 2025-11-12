@@ -53,23 +53,23 @@ public class CampusMap {
         myMap.addBuilding(seelye);
 
         House ziskind = new House("Ziskind House", "1 Henshaw Ave, Northampton, MA 01063", 3, true, new ArrayList<Student>(),true);
-        House scales = new House("Scales House", "2 Seelye Dr #1, Northampton, MA 01060", 3, true, new ArrayList<Student>(),true);
-        House lamont = new House("Lamont House", "2 Seelye Dr #1, Northampton, MA 01060", 4, true, new ArrayList<Student>(),true);
-        House morris = new House("Morris House", "2 Seelye Dr #1, Northampton, MA 01060", 4, false, new ArrayList<Student>());
+        House scales = new House("Scales House", "170 Elm St, Northampton, MA 01063", 3, true, new ArrayList<Student>(),true);
+        House lamont = new House("Lamont House", "17 Prospect St, Northampton, MA 01060", 4, true, new ArrayList<Student>(),true);
+        House morris = new House("Morris House", "101 Green St, Northampton, MA 01063", 4, false, new ArrayList<Student>());
         myMap.addBuilding(ziskind);
         myMap.addBuilding(scales);
         myMap.addBuilding(lamont);
         myMap.addBuilding(morris);
 
 
-        Library neilson = new Library("Neilson Library", "2 Seelye Dr #1, Northampton, MA 01060", 4);
-        Library ag = new Library("Alumnae Gymnasium", "2 Seelye Dr #1, Northampton, MA 01060", 4, false);
+        Library neilson = new Library("Neilson Library", "7 Neilson Drive, Northampton, MA 01063", 4);
+        Library ag = new Library("Alumnae Gymnasium", "83 Green St, Northampton, MA 01063", 4, false);
         myMap.addBuilding(neilson);
         myMap.addBuilding(ag);
 
-        Cafe compass = new Cafe("Compass Cafe", "2 Seelye Dr #1, Northampton, MA 01060", 2);
-        Cafe cc = new Cafe("Campus Center Cafe", "2 Seelye Dr #1, Northampton, MA 01060", 3, 200, 100, 80, 300);
-        Cafe tunic = new Cafe("Tunic Cafe", "186 Main St, Northampton, MA 01060", 5, 200, 100, 80, 300, true);
+        Cafe compass = new Cafe("Compass Cafe", "7 Elm St, Northampton, MA 01063", 2);
+        Cafe cc = new Cafe("Campus Center Cafe", "100 Elm St, Northampton, MA 01063", 3, 200, 100, 80, 300);
+        Cafe tunic = new Cafe("Tunic Cafe", "186 Main St, Northampton, MA 01060", 5, 1000, 1000, 500, 1500, true);
         myMap.addBuilding(compass);
         myMap.addBuilding(cc);
         myMap.addBuilding(tunic);

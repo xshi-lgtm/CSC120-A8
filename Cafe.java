@@ -108,6 +108,7 @@ public class Cafe extends Building implements CafeRequirements{
      * This method only allows users to enter the first floor.
      * 
      * @param floorNum the floor number to go to
+     * @throws RuntimeException throws appropriate exception message if users want to do invalid operations
      */
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {

@@ -27,14 +27,15 @@ public class House extends Building implements HouseRequirements{
     hasElevator = false;
     System.out.println("System.out.println(\"You have built a house: 🏠\");");
   }
+
   /**
    * Overloaded: Construct a House.
-   * @param name
-   * @param address
-   * @param nFloors
-   * @param hasDiningRoom
-   * @param residents
-   * @param hasElevator
+   * @param name the name of the house
+   * @param address the address of the house
+   * @param nFloors the number of floors in the house
+   * @param hasDiningRoom whether the house has a dining room
+   * @param residents list of residents in the house
+   * @param hasElevator whether the house has an elevator
    * @throws RuntimeException if nFloors < 1 (enforced by Building)
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom, ArrayList<Student> residents, boolean hasElevator) {
@@ -46,18 +47,26 @@ public class House extends Building implements HouseRequirements{
   }
 
 // Accessors
-  /** @return true if the house has a dinning room, false otherwise */
+  /** 
+   * Access the dining room information of the house
+   * @return true if the house has a dinning room, false otherwise 
+   * */
   public boolean hasDiningRoom(){
     return this.hasDiningRoom;
   }; 
-  /** @return the number of current residents */
+
+  /** 
+   * access the number of residents in the house
+   * @return the number of current residents 
+   * */
   public int nResidents(){
     return this.residents.size();
   }; 
 
-// Overridden
-  /** @Override showOptions
-   * Prints the options available in a House */
+  // Overridded
+  /** overrides the showOptions method in the parent class
+   * Prints the action options available in a House 
+   */
   public void showOptions() {
     super.showOptions();
     System.out.println("Available options at " + this.name + ":\n + hasDiningRoom() \n + nResidents() \n + moveIn(s) \n + moveOut(s) \n + isResident(s) \n + goToFloor(n)");
@@ -74,7 +83,7 @@ public class House extends Building implements HouseRequirements{
     if (floorNum < 1 || floorNum > this.nFloors) {
       throw new RuntimeException("Invalid floor number. Valid range is 1-" + this.nFloors + ".");
     }
-    if (!hasElevator && Math.abs(floorNum - this.activeFloor) > 1) {
+    if (!hasElevator && Math.abs(floorNum - this.activeFloor) > 1) { // invalid if move to non-adjacent floors in a house without elevator
       throw new RuntimeException("No elevator: you must move one floor at a time.");
     }
     super.goToFloor(floorNum);
@@ -83,6 +92,7 @@ public class House extends Building implements HouseRequirements{
   /**
    * Move a student into the house
    * @param s the student to move in
+   * @throws IllegalArgumentException if the student is already a resident
    */
   public void moveIn(Student s){
     if (!this.residents.contains(s)){
@@ -91,11 +101,22 @@ public class House extends Building implements HouseRequirements{
       throw new IllegalArgumentException(s.getName()+ "is already a resident.");
     }
   }
+
+  /** Overloads moveIn
+   * Move a student into the house
+   * @param name
+   * @param id
+   * @param classYear
+   */
+  public void moveIn(String name, String id, int classYear){
+    this.moveIn(new Student(name, id, classYear));
+  }
   
   /**
    * Move a student out of the house
    * @param s
-   * @return the student that moved out, or null if s was not a resident
+   * @return true if the student has been moved out, false otherwise
+   * @throws IllegalArgumentException if the student is not a resident
    */
   public Student moveOut(Student s){
     if (this.residents.remove(s)){
@@ -114,7 +135,7 @@ public class House extends Building implements HouseRequirements{
     return this.residents.contains(s);
   };
 
-//Overloads
+  //Overloads
   /** Check if a student is a current resident
    * @param name the name of the student to check
    * @return true if a student with the given name is a resident, false otherwise
@@ -124,16 +145,6 @@ public class House extends Building implements HouseRequirements{
       if (s.getName().equals(name)) return true;
     }
     return false;
-  }
-
-  /**
-   * Move a student into the house
-   * @param name
-   * @param id
-   * @param classYear
-   */
-  public void moveIn(String name, String id, int classYear){
-    this.moveIn(new Student(name, id, classYear));
   }
 
 public static void main(String[] args) {
