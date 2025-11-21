@@ -1,0 +1,2 @@
+1. In the Cafe class, we put super() in the first row of the constructors to make the code compile (also in the house class).
+2. In the House class, we changed the constructor by removing the required input paremeter arraylist of students to satisfy the requirements in the readme file. Also, we updated the corresponding instances created through this constructor. 

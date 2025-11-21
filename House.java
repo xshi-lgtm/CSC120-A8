@@ -18,9 +18,8 @@ public class House extends Building implements HouseRequirements{
     * @param address     the street address
     * @param nFloors     number of floors in the building
     * @param hasDiningRoom whether the house has a dining room
-    * @throws RuntimeException if nFloors < 1 (enforced by Building)
     */
-  public House(String name, String address, int nFloors, boolean hasDiningRoom, ArrayList<Student> residents){
+  public House(String name, String address, int nFloors, boolean hasDiningRoom){
     super(name, address, nFloors);
     this.hasDiningRoom = hasDiningRoom;
     this.residents = new ArrayList<Student>();
@@ -36,9 +35,8 @@ public class House extends Building implements HouseRequirements{
    * @param hasDiningRoom whether the house has a dining room
    * @param residents list of residents in the house
    * @param hasElevator whether the house has an elevator
-   * @throws RuntimeException if nFloors < 1 (enforced by Building)
    */
-  public House(String name, String address, int nFloors, boolean hasDiningRoom, ArrayList<Student> residents, boolean hasElevator) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator) {
     super(name, address, nFloors);
     this.hasDiningRoom = hasDiningRoom;
     this.hasElevator = hasElevator;
@@ -75,6 +73,7 @@ public class House extends Building implements HouseRequirements{
   /**
    * Override gotoFloor method to add elevator functionality
    * @param floorNum the floor number to go to
+   * @throws RuntimeException if the targeting floor is invalid
    */
     public void goToFloor(int floorNum) {
     if (this.activeFloor == -1) {
@@ -152,7 +151,7 @@ public static void main(String[] args) {
     System.out.println("Test of House constructor/methods");
     System.out.println("------------------------------------");
     
-    House ziskindHouse = new House("Ziskind House", "1 Henshaw Ave", 3, true, new ArrayList<Student>());
+    House ziskindHouse = new House("Ziskind House", "1 Henshaw Ave", 3, true);
     System.out.println(ziskindHouse);
     ziskindHouse.showOptions();
 
@@ -183,7 +182,7 @@ public static void main(String[] args) {
     System.out.println("-----------------------------------");
     System.out.println("Testing House with elevator");
     System.out.println("-----------------------------------");
-    House lamontHouse = new House("Lamont House", "2 Elm Street", 4, true, new ArrayList<Student>(), true);
+    House lamontHouse = new House("Lamont House", "2 Elm Street", 4, true, true);
     System.out.println(lamontHouse);
     lamontHouse.enter();
     lamontHouse.goToFloor(4);

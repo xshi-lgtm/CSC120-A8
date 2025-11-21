@@ -17,8 +17,8 @@ public class Cafe extends Building implements CafeRequirements{
      * @param nFloors the number of floors the coffee shop has
      */
     public Cafe(String name, String address, int nFloors) {
-        System.out.println("You have built a cafe: ☕");
         super(name, address, nFloors);
+        System.out.println("You have built a cafe: ☕");
         this.nCoffeeOunces = 100; // setting fixed values for parameters
         this.nSugarPackets = 50;
         this.nCreams = 40;
@@ -39,8 +39,8 @@ public class Cafe extends Building implements CafeRequirements{
      * @param nCups the number of cups in the stock
      */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
-        System.out.println("You have built a cafe: ☕");
         super(name, address, nFloors);
+        System.out.println("You have built a cafe: ☕");
         this.nCoffeeOunces = nCoffeeOunces;
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
@@ -62,8 +62,8 @@ public class Cafe extends Building implements CafeRequirements{
      * @param hasElevator records whether the coffee shop has an elevator
      */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups, Boolean hasElevator) {
-        System.out.println("You have built a cafe: ☕");
         super(name, address, nFloors);
+        System.out.println("You have built a cafe: ☕");
         this.nCoffeeOunces = nCoffeeOunces;
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
@@ -144,10 +144,10 @@ public class Cafe extends Building implements CafeRequirements{
      * @param nCups number of cups to be restocked
      */
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
-        this.nCoffeeOunces = nCoffeeOunces;
-        this.nSugarPackets = nSugarPackets;
-        this.nCreams = nCreams;
-        this.nCups = nCups;
+        this.nCoffeeOunces += nCoffeeOunces;
+        this.nSugarPackets += nSugarPackets;
+        this.nCreams += nCreams;
+        this.nCups += nCups;
     }
 
     /**

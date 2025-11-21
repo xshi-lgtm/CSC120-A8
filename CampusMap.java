@@ -52,10 +52,10 @@ public class CampusMap {
         myMap.addBuilding(burton);
         myMap.addBuilding(seelye);
 
-        House ziskind = new House("Ziskind House", "1 Henshaw Ave, Northampton, MA 01063", 3, true, new ArrayList<Student>(),true);
-        House scales = new House("Scales House", "170 Elm St, Northampton, MA 01063", 3, true, new ArrayList<Student>(),true);
-        House lamont = new House("Lamont House", "17 Prospect St, Northampton, MA 01060", 4, true, new ArrayList<Student>(),true);
-        House morris = new House("Morris House", "101 Green St, Northampton, MA 01063", 4, false, new ArrayList<Student>());
+        House ziskind = new House("Ziskind House", "1 Henshaw Ave, Northampton, MA 01063", 3, true, true);
+        House scales = new House("Scales House", "170 Elm St, Northampton, MA 01063", 3, true, true);
+        House lamont = new House("Lamont House", "17 Prospect St, Northampton, MA 01060", 4, true, true);
+        House morris = new House("Morris House", "101 Green St, Northampton, MA 01063", 4, false);
         myMap.addBuilding(ziskind);
         myMap.addBuilding(scales);
         myMap.addBuilding(lamont);
